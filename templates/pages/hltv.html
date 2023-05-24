@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block navbar %} 
+{% include 'components/navbar.html' %}
+{% endblock navbar %}
+
+{% block content %}
+HLTV STAGE
+
+{% for player in players %}
+<div >
+<h1>{{player.ranking}}</h1>
+<h1>{{player.name}}</h1>
+<h1>{{player.players}}</h1>
+<div>
+
+{% endfor %}
+
+
+
+{% endblock content %}
+
+{% block footer %} 
+
+{% endblock footer %}
+
+{% block javascript %} 
+
+{% endblock javascript %}

@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    'widget_tweaks',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -38,7 +40,8 @@ INSTALLED_APPS = [
 
     'tailwind',
     'theme',
-    'accounts'
+    'accounts',
+    'hltv',
 
 ]
 

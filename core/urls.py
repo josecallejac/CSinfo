@@ -21,12 +21,17 @@ from django.conf import settings
 from django.urls.conf import include
 
 from .views import HomeView
+from hltv import views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('csinfo/', include('csinfo.urls', namespace="csinfo")),
     path('accounts/', include('allauth.urls')),
-    path('', HomeView.as_view(), name="home")
+    path('', HomeView.as_view(), name="home"),
+    path('hltv/', include('hltv.urls', namespace="hltv")),
+    
 ]
 
 if settings.DEBUG:

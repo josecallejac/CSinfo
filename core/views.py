@@ -8,3 +8,4 @@ class HomeView(View):
 
         }
         return render(request, 'pages/index.html', context)
+    
