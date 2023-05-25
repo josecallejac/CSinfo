@@ -61,11 +61,7 @@ body {
   margin: 0;
   /* 1 */
   line-height: inherit;
-  /* 2 */
-  background: url("/static/images/csgobackground.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  
+  /* 2 */  
 }
 
 /*
