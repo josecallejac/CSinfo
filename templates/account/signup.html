@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 {% load widget_tweaks %}
 
@@ -12,71 +13,77 @@
 {% block content %}
 
 
-<body style="background: url('/static/images/back1.jpg'); background-repeat: no-repeat;
-background-size: auto;">
+
 <div class="grid items-center justify-center h-1 mt-24">
-  <div class="min-w-fit flex-col border bg-white px-6 py-14 shadow-md rounded-[4px] p-8">
+    <div class="min-w-fit flex-col border bg-white px-6 py-14 shadow-md rounded-[4px] p-8">
+    
   
-
-<div class="table items-center justify-center px-4 py-12 my-4 sm:px-6 lg:px-8 border-yellow-400">
-    <div class="w-full max-w-md space-y-8 grid">
-        <div class="mt-6">
-            <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-950">
-                CREATE TU CUENTA
-            </h2>
-            <p class="mt-2 text-sm text-center text-gray-600">
-              O
-              <a href="{% url 'account_login' %}" class="font-medium text-green-600 hover:text-green-500">
-                  logeate si ya tienes una.
-              </a>
-          </p>
+  <div class="flex items-center justify-center px-4 py-12 my-4 sm:px-6 lg:px-8 border-yellow-400">
+      <div class="w-full max-w-md space-y-8 grid">
+          <div class="mt-6">
+              <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-950">
+                  CREATE TU CUENTA
+              </h2>
+              <p class="mt-2 text-sm text-center text-gray-600">
+                O
+                <a href="{% url 'account_login' %}" class="font-medium text-green-600 hover:text-green-500">
+                    logeate si ya tienes una.
+                </a>
+            </p>
+          </div>
+          <form class="mt-8 space-y-6" id="signup_form" method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+  
+            {{ form.non_field_errors | safe }}
+            <input type="hidden" name="remember" value="true" />
+            <div class="-space-y-px rounded-md shadow-sm">
+              <div class="mb-7 rounded-[6px] border p-5 hover:outline-none focus:outline-none hover:border-yellow-500">
+                {{ form.username.errors | safe }}
+                <label for="username" class="sr-only">Username</label>
+                {% render_field form.username placeholder="Username" id="username" name="username" type="text" autocomplete="username" required=True class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %}
+              </div>
+              <div class="mb-7 rounded-[6px] border p-5 hover:outline-none focus:outline-none hover:border-yellow-500">
+                {{ form.email.errors | safe }}
+                <label for="email" class="sr-only">Username</label>
+                {% render_field form.email id="email" name="email" placeholder="Email" type="email" autocomplete="email" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %}
+              </div>
+              <div class="mb-7 rounded-[6px] border p-5 hover:outline-none focus:outline-none hover:border-yellow-500">
+                {{ form.password1.errors | safe }}
+                <label for="password1" class="sr-only">Password</label>
+                {% render_field form.password1 id="password1" name="password1" placeholder="Password" type="password" autocomplete="current-password" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %}
+              </div>
+              <div class="mb-7 rounded-[6px] border p-5 hover:outline-none focus:outline-none hover:border-yellow-500">
+                {{ form.password2.errors | safe }}
+                <label for="password2" class="sr-only">Password</label>
+                {% render_field form.password2 id="password2" name="password2" type="password" autocomplete="current-password" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Confirm Password" %}
+              </div>
+            </div>
+  
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+  
+            <div>
+              <button class="mt-5 w-full border p-2 bg-gradient-to-r from-gray-800 bg-gray-500 text-white rounded-[4px] hover:bg-slate-400 scale-105 duration-300" type="submit">Sign in</button>
+            </div>
+            <div class="mt-5 flex justify-between text-sm text-gray-600 text-center">
+              <a href="{% url 'account_reset_password' %}">¿Olvidaste tu contraseña?</a>
+              
+            </div>
+          </form>
         </div>
-        <form class="mt-8 space-y-6" id="signup_form" method="post" action="{% url 'account_signup' %}">
-          {% csrf_token %}
-
-          {{ form.non_field_errors | safe }}
-          <input type="hidden" name="remember" value="true" />
-          <div class="-space-y-px rounded-md shadow-sm">
-            <div class="mb-7 rounded-[6px] border p-5 hover:outline-none focus:outline-none hover:border-yellow-500">
-              {{ form.username.errors | safe }}
-              <label for="username" class="sr-only">Username</label>
-              {% render_field form.username placeholder="Username" id="username" name="username" type="text" autocomplete="username" required=True class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %}
-            </div>
-            <div class="mb-7 rounded-[6px] border p-5 hover:outline-none focus:outline-none hover:border-yellow-500">
-              {{ form.email.errors | safe }}
-              <label for="email" class="sr-only">Username</label>
-              {% render_field form.email id="email" name="email" placeholder="Email" type="email" autocomplete="email" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %}
-            </div>
-            <div class="mb-7 rounded-[6px] border p-5 hover:outline-none focus:outline-none hover:border-yellow-500">
-              {{ form.password1.errors | safe }}
-              <label for="password1" class="sr-only">Password</label>
-              {% render_field form.password1 id="password1" name="password1" placeholder="Password" type="password" autocomplete="current-password" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %}
-            </div>
-            <div class="mb-7 rounded-[6px] border p-5 hover:outline-none focus:outline-none hover:border-yellow-500">
-              {{ form.password2.errors | safe }}
-              <label for="password2" class="sr-only">Password</label>
-              {% render_field form.password2 id="password2" name="password2" type="password" autocomplete="current-password" required="True" class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Confirm Password" %}
-            </div>
-          </div>
-
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
-
-          <div>
-            <button class="mt-5 w-full border p-2 bg-gradient-to-r from-gray-800 bg-gray-500 text-white rounded-[4px] hover:bg-slate-400 scale-105 duration-300" type="submit">Sign in</button>
-          </div>
-          <div class="mt-5 flex justify-between text-sm text-gray-600 text-center">
-            <a href="{% url 'account_reset_password' %}">¿Olvidaste tu contraseña?</a>
-            
-          </div>
-        </form>
       </div>
     </div>
   </div>
-</div>
 
-</body>
+
+
+
+
+
+
+
+
 
 
 {% endblock %}

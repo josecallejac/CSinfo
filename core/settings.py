@@ -12,6 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY= 'django-insecure-1+wx&mi-n^o2ao#j$5c)67qo%c^%4#@66v+0eo(d+u6y-093*)'
 DEBUG = True
 
+#TAILWIND_DEV_MODE=True
+
 ALLOWED_HOSTS = []
 
 
@@ -28,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'compressor',
 
     'widget_tweaks',
 
@@ -40,6 +43,8 @@ INSTALLED_APPS = [
 
     'tailwind',
     'theme',
+
+    'django_browser_reload',
     'accounts',
     'hltv',
 
@@ -87,6 +92,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -108,6 +114,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
