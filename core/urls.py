@@ -32,6 +32,7 @@ urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('', HomeView.as_view(), name="home"),
     path('hltv/', include('hltv.urls')),
+    path('api/', include('api.urls'))
     
 ]
 

@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'accounts',
     'hltv',
 
+    'rest_framework',
+
 ]
 
 TAILWIND_APP_NAME = 'theme'
