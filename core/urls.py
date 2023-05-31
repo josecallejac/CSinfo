@@ -31,7 +31,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
     path('', HomeView.as_view(), name="home"),
-    path('hltv/', include('hltv.urls', namespace="hltv")),
+    path('hltv/', include('hltv.urls')),
     
 ]
 
