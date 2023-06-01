@@ -1,6 +1,5 @@
 # CSinfo
 
-.\env\Scripts\activate
 
 pip install django
 
@@ -18,3 +17,14 @@ pip install django-allauth
 
 pip install request
 pip install django-widget-tweaks
+
+pip install django-tailwind --upgrade
+
+npm i @material-tailwind/html
+
+python -m pip install Pillow
+pip install djangorestframework
+https://hltv-api.vercel.app/api/match.json
+pip install coreapi
+
+
