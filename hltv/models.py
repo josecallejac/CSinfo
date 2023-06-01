@@ -34,6 +34,9 @@ class Teams(models.Model):
     logo = models.ImageField(verbose_name='logo')
     players = models.CharField(max_length=250)
 
+    def __str__(self):
+        return self.nameTeam
+
 
 
 class Noticias(models.Model):
@@ -41,3 +44,6 @@ class Noticias(models.Model):
     description = models.CharField(max_length=250)
     link = models.URLField(verbose_name='link')
     time = models.DateTimeField(verbose_name='time')
+
+    def __str__(self):
+        return self.title
