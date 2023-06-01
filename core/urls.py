@@ -23,6 +23,7 @@ from django.urls.conf import include
 from .views import HomeView
 from hltv import views
 
+from rest_framework.documentation import include_docs_urls
 
 
 urlpatterns = [
@@ -32,7 +33,8 @@ urlpatterns = [
     path("__reload__/", include("django_browser_reload.urls")),
     path('', HomeView.as_view(), name="home"),
     path('hltv/', include('hltv.urls')),
-    path('api/', include('api.urls'))
+    path('api/', include('api.urls')),
+    path('docs/', include_docs_urls(title='Api CSinfo Documentation'))
     
 ]
 

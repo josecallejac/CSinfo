@@ -33,3 +33,11 @@ class Teams(models.Model):
     ranking = models.IntegerField(verbose_name='ranking')
     logo = models.ImageField(verbose_name='logo')
     players = models.CharField(max_length=250)
+
+
+
+class Noticias(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=250)
+    link = models.URLField(verbose_name='link')
+    time = models.DateTimeField(verbose_name='time')
