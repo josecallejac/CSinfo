@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from hltv.models import Player
 import requests
+
+from django.conf import settings
 
 # Create your views here.
 
@@ -16,8 +18,13 @@ import requests
 
 
 def stats(request):
+    nickname = request.GET.get('nickname')
+    if not request.user.is_authenticated:
+        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
     jugadores = Player.objects.all()
     return render(request, 'pages/stats.html', {'jugadores': jugadores})
+
+
 
 
 
