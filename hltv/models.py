@@ -56,5 +56,23 @@ class Noticias(models.Model):
     price = models.IntegerField(max_length=100)
     containerWeapon = models.CharField(max_length=100)
     collectionsWeapon = models.CharField(max_length=100)
+
+     def __str__(self):
+        return self.nameWeapon
+
  """
+
+
+"""  class Torneos(models.Model):
+    nombreTorneo = models.CharField(max_length=100)
+    locacionTorneo = models.CharField(max_length=100)
+    teamsParticipando = models.IntegerField(max_length=10)
+    premioGanador = models.IntegerField(max_length=10)
+    fechaInicio = models.DateField()
+    fechaTermino = models.DateField()
+    topPlayers = models.CharField(max_length=100)
+    topTeams = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombreTorneo """
     
