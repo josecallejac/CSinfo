@@ -47,3 +47,14 @@ class Noticias(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+""" class Market(models.Model):
+    nameWeapon = models.CharField(max_length=100)
+    defWeapon = models.Choices()
+    qualityWeapon = models.Choices()
+    price = models.IntegerField(max_length=100)
+    containerWeapon = models.CharField(max_length=100)
+    collectionsWeapon = models.CharField(max_length=100)
+ """
+    
