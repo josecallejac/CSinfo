@@ -5,8 +5,8 @@ from . import views
 app_name="hltv"
 
 urlpatterns = [
-    #path('players', views.players, name='players'),
     path('stats', views.stats, name='stats'),
+    path('list_players', views.list_players, name='list_players'),
     path('noticias', views.noticias, name='noticias'),
     
 ]

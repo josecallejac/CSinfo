@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http.response import JsonResponse
 from hltv.models import Player, Noticias
 import requests
 
@@ -17,12 +17,23 @@ from django.conf import settings
 #    pass
 
 
+#def stats(request):
+#    nickname = request.GET.get('nickname')
+#    if not request.user.is_authenticated:
+#        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+#    jugadores = Player.objects.all()
+#    return render(request, 'pages/stats.html', {'jugadores': jugadores})
 def stats(request):
-    nickname = request.GET.get('nickname')
-    if not request.user.is_authenticated:
-        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
-    jugadores = Player.objects.all()
-    return render(request, 'pages/stats.html', {'jugadores': jugadores})
+    return render(request, 'pages/stats.html')
+
+def list_players(request):
+    players = list(Player.objects.values())
+    data = {'players': players}
+    return JsonResponse(data)
+
+
+   
+
 
 
 def noticias(request):

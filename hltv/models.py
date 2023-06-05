@@ -22,6 +22,8 @@ class Player(models.Model):
     mapsPlayed = models.IntegerField(verbose_name='mapsplayed')
     kd = models.DecimalField(verbose_name='kd', max_digits=5, decimal_places=2)
     rating = models.DecimalField(verbose_name='rating', max_digits=5, decimal_places=2)
+    
+
 
     def __str__(self):
         return self.nickname
@@ -32,7 +34,7 @@ class Teams(models.Model):
     nameTeam = models.CharField(max_length=50)
     ranking = models.IntegerField(verbose_name='ranking')
     logo = models.ImageField(verbose_name='logo')
-    players = models.CharField(max_length=250)
+    
 
     def __str__(self):
         return self.nameTeam
