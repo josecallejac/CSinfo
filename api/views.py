@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from hltv.models import Player
-from .serializers import PlayerSerializer
+from hltv.models import Player, Noticias
+from .serializers import PlayerSerializer, NoticiasSerializer
 from rest_framework import viewsets
 
 
@@ -22,4 +22,8 @@ from rest_framework import viewsets
 class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
-    
+
+
+class NoticiasViewSet(viewsets.ModelViewSet):
+    queryset = Noticias.objects.all()
+    serializer_class = NoticiasSerializer
