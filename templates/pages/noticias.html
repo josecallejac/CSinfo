@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block navbar %} 
+{% include 'components/navbar.html' %}
+{% endblock navbar %}
+
+{% block content %}
+
+
+{% for noticia in noticias %} 
+
+{{noticia.title}}
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock content %}
+
+{% block footer %} 
+{% include 'components/footer.html' %}
+{% endblock footer %}
+
+{% block javascript %} 
+
+{% endblock javascript %}

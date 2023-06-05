@@ -23,7 +23,6 @@ class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
 
-
 class NoticiasViewSet(viewsets.ModelViewSet):
     queryset = Noticias.objects.all()
     serializer_class = NoticiasSerializer
