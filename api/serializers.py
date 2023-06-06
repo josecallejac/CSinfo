@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from hltv.models import Player, Noticias
+from hltv.models import Player, Noticias, Teams
 
 
 class PlayerSerializer(serializers.ModelSerializer):
@@ -10,6 +10,11 @@ class PlayerSerializer(serializers.ModelSerializer):
 class NoticiasSerializer(serializers.ModelSerializer):
     class Meta:
         model = Noticias
+        fields = '__all__'
+
+class TeamsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Teams
         fields = '__all__'
 
 

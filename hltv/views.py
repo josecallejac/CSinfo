@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http.response import JsonResponse
-from hltv.models import Player, Noticias
+from hltv.models import Player, Noticias, Teams
 import requests
 
 from django.conf import settings
@@ -42,6 +42,11 @@ def noticias(request):
     noticias = Noticias.objects.all()
     return render(request, 'pages/noticias.html', {'noticias': noticias} )
 
+
+def team(request):
+    team = Teams.objects.all()
+    return render(request, 'pages/teams.html', {'team': team } )
+    
 
 
 
