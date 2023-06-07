@@ -23,6 +23,8 @@ from django.conf import settings
 #        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
 #    jugadores = Player.objects.all()
 #    return render(request, 'pages/stats.html', {'jugadores': jugadores})
+
+# STATS DE JUGADORES
 def stats(request):
     return render(request, 'pages/stats.html')
 
@@ -31,16 +33,23 @@ def list_players(request):
     data = {'players': players}
     return JsonResponse(data)
 
+#NOTICIAS CSGO
+def get_noticias(_request):
+    noticias = list(Noticias.objects.values())
+    if (len(noticias)>0):
+        data={'message': "Success", 'noticias': noticias }
+    else:
+        data = {'message': 'NotFound'}
+    return JsonResponse(data)
 
-   
-
-
+    
 
 def noticias(request):
-    if not request.user.is_authenticated:
-        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
-    noticias = Noticias.objects.all()
-    return render(request, 'pages/noticias.html', {'noticias': noticias} )
+    #if not request.user.is_authenticated:
+        #return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+    #noticias = Noticias.objects.all()
+    #return render(request, 'pages/noticias.html', {'noticias': noticias} )
+    return render(request, 'pages/noticias.html')
 
 
 def team(request):

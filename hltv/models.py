@@ -23,18 +23,14 @@ class Player(models.Model):
     kd = models.DecimalField(verbose_name='kd', max_digits=5, decimal_places=2)
     rating = models.DecimalField(verbose_name='rating', max_digits=5, decimal_places=2)
     
-
-
     def __str__(self):
         return self.nickname
     
-
 class Teams(models.Model):
     id_team = models.AutoField(primary_key=True)
     nameTeam = models.CharField(max_length=50)
     ranking = models.IntegerField(verbose_name='ranking')
     logo = models.ImageField(verbose_name='logo')
-    
 
     def __str__(self):
         return self.nameTeam
@@ -69,9 +65,9 @@ class Noticias(models.Model):
     nombreTorneo = models.CharField(max_length=100)
     locacionTorneo = models.CharField(max_length=100)
     teamsParticipando = models.IntegerField(max_length=10)
-    premioGanador = models.IntegerField(max_length=10)
-    fechaInicio = models.DateField()
-    fechaTermino = models.DateField()
+    premio = models.IntegerField(max_length=10)
+    fechaInicio = models.DateField(verbose_name='fecha_inicio' )
+    fechaTermino = models.DateField(verbose_name='fecha_termino')
     topPlayers = models.CharField(max_length=100)
     topTeams = models.CharField(max_length=100)
 

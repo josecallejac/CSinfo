@@ -9,12 +9,17 @@
 {% block content %}
 
 
-{% for noticia in noticias %} 
 
-{{noticia.title}}
+<div id="news-container" class="card-columns card text-center">
+        
 
 
-{% endfor %}
+
+</div>
+
+
+
+
 
 
 
@@ -26,6 +31,7 @@
 {% include 'components/footer.html' %}
 {% endblock footer %}
 
-{% block javascript %} 
 
+{% block javascript %} 
+<script src="{% static 'js/noticias.js' %}"></script>
 {% endblock javascript %}
