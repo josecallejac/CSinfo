@@ -28,7 +28,7 @@ from django.conf import settings
 def stats(request):
     return render(request, 'pages/stats.html')
 
-def list_players(request):
+def list_players(_request):
     players = list(Player.objects.values())
     data = {'players': players}
     return JsonResponse(data)
@@ -41,20 +41,45 @@ def get_noticias(_request):
     else:
         data = {'message': 'NotFound'}
     return JsonResponse(data)
-
-    
-
 def noticias(request):
-    #if not request.user.is_authenticated:
-        #return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+    if not request.user.is_authenticated:
+        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
     #noticias = Noticias.objects.all()
     #return render(request, 'pages/noticias.html', {'noticias': noticias} )
     return render(request, 'pages/noticias.html')
 
+""" #MARKET CSGO
+def get_market(_request):
+    market = list(Market.objects.values())
+    if (len(market)>0):
+        data={'message': "Success", 'market': market }
+    else:
+        data = {'message': 'NotFound'}
+    return JsonResponse(data)
 
-def team(request):
-    team = Teams.objects.all()
-    return render(request, 'pages/teams.html', {'team': team } )
+def market(request):
+    #if not request.user.is_authenticated:
+        #return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+    #noticias = Noticias.objects.all()
+    #return render(request, 'pages/noticias.html', {'noticias': noticias} )
+    return render(request, 'pages/market.html')
+ """
+
+
+
+
+
+#TEAMS CSGO
+def get_teams(_request):
+    teams = list(Teams.objects.values())
+    if (len(teams)>0):
+        data={'message': "Success", 'teams': teams }
+    else:
+        data = {'message': 'NotFound'}
+    return JsonResponse(data)
+
+def teams(request):    
+    return render(request, 'pages/teams.html' )
     
 
 

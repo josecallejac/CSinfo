@@ -1,5 +1,4 @@
-# CSinfo
-
+.\env\Scripts\activate
 
 pip install django
 
@@ -24,7 +23,37 @@ npm i @material-tailwind/html
 
 python -m pip install Pillow
 pip install djangorestframework
+pip install django_compressor
 https://hltv-api.vercel.app/api/match.json
 pip install coreapi
+pip install django-model-utils
+
+BOXICONS -->1:13:19
 
 
+RATING -->La puntuación nos indica si el jugador está por encima o por debajo de la
+media, siendo 1,00 la media.
+
+
+MODEL MARKET: 
+defWeapon= choices(
+Classified 
+Restricted
+Mil-spec 
+Covert 
+Industrial
+Consumer
+)
+
+qualityWeapon = choices(
+FN
+MW
+FT
+WW
+BS
+ST FN
+ST MW
+ST FT
+ST WW
+ST BS
+)

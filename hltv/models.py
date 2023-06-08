@@ -50,17 +50,29 @@ class Noticias(models.Model):
         return self.title
     
 
-class Market(models.Model):
+
+    
+    
+
+""" class Market(models.Model):
     nameWeapon = models.CharField(max_length=100)
+    WEAPONTYPE = Choices('Pistols','Rifles','SMG','Shotgun','Knifes','Gloves')
+    weaponType = models.CharField(choices=WEAPONTYPE, max_length=100)
+    def __str__(self):
+        return self.nameWeapon 
+     """
+
+""" class Armas(models.Model):
+    nameSkin = models.CharField(max_length=100)
     DEFWEAPON = Choices('Classified', 'Restricted', 'Mil-spec', 'Covert', 'Industrial', 'Consumer')
     defweapon = models.CharField(choices=DEFWEAPON, max_length=100)
     QUALITYWEAPON = Choices('FN', 'MW','FT','WW','BS','ST FN','ST MW','ST FT','ST WW','ST WW')
     qualityweapon = models.CharField(choices=QUALITYWEAPON, max_length=100)
     containerWeapon = models.CharField(max_length=100)
     collectionsWeapon = models.CharField(max_length=100)
-
     def __str__(self):
-        return self.nameWeapon
+        return self.nameSkin """
+
 
 
 

@@ -7,3 +7,4 @@ from .models import Player, Teams, Noticias
 admin.site.register(Player)
 admin.site.register(Teams)
 admin.site.register(Noticias)
+
