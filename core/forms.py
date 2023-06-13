@@ -11,10 +11,12 @@ class CustomSignupForm(SignupForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['is_staff'] = forms.BooleanField(label='¿Crear cuenta de administrador?', required=False)
+       # self.fields['nacionalidad'] = forms.CharField(label='id_nacionalidad', required=True)
 
     def save(self, request):
         user = super().save(request)
         is_staff = self.cleaned_data.get('is_staff')
+        
 
         if is_staff:
             user.is_staff = True
@@ -28,6 +30,10 @@ class CustomSignupForm(SignupForm):
 
         user.save()
         return user
+    
+        
+    
+    
 
         
     

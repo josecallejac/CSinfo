@@ -8,6 +8,7 @@ router = routers.DefaultRouter()
 router.register(r'players', views.PlayerViewSet)
 router.register(r'noticias', views.NoticiasViewSet)
 router.register(r'teams', views.TeamsViewSet)
+router.register(r'market', views.MarketViewSet)
 
 
 

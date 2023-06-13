@@ -11,8 +11,8 @@ urlpatterns = [
     path('teams', views.teams, name='teams'),
     path('get_noticias', views.get_noticias, name='get_noticias'),
     path('get_teams', views.get_teams, name='get_teams'),
-    #path('market', views.market, name='market'),
-    #path('get_market', views.get_market, name='get_market'),
+    path('market', views.market, name='market'),
+    path('get_market', views.get_market, name='get_market'),
     
 ]
 

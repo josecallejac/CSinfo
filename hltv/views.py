@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http.response import JsonResponse
-from hltv.models import Player, Noticias, Teams
+from hltv.models import Player, Noticias, Teams, Market
 import requests
 
 from django.conf import settings
@@ -48,7 +48,7 @@ def noticias(request):
     #return render(request, 'pages/noticias.html', {'noticias': noticias} )
     return render(request, 'pages/noticias.html')
 
-""" #MARKET CSGO
+ #MARKET CSGO
 def get_market(_request):
     market = list(Market.objects.values())
     if (len(market)>0):
@@ -57,7 +57,7 @@ def get_market(_request):
         data = {'message': 'NotFound'}
     return JsonResponse(data)
 
-"""
+
 
 def market(request):
     #if not request.user.is_authenticated:
@@ -77,7 +77,7 @@ def get_teams(_request):
     if (len(teams)>0):
         data={'message': "Success", 'teams': teams }
     else:
-        data = {'message': 'NotFound'}
+        data = {'message': 'No hay registros'}
     return JsonResponse(data)
 
 def teams(request):    

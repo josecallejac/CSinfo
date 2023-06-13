@@ -61,11 +61,57 @@ class Market(models.Model):
         (WTYPE_6, 'Gloves'),
     )
     choice_field = models.CharField(max_length=50, choices=CHOICES)
+    nameSkin = models.CharField(max_length=100)
+    DWEAPON1 = 'Classified'
+    DWEAPON2 = 'Restricted'
+    DWEAPON3 = 'Mil-spec'
+    DWEAPON4 = 'Covert'
+    DWEAPON5 = 'Industrial'
+    DWEAPON6 = 'Consumer'
+
+    OPCIONESARMAS = (
+        (DWEAPON1, 'Classified'),
+        (DWEAPON2, 'Restricted'),
+        (DWEAPON3, 'Mil-spec'),
+        (DWEAPON4, 'Covert'),
+        (DWEAPON5, 'Industrial'),
+        (DWEAPON6, 'Consumer'),
+    )
+    defWeapon = models.CharField(max_length=50, choices=OPCIONESARMAS)
+
+    QWEAPON1 = 'FN'
+    QWEAPON2 = 'MW'
+    QWEAPON3 = 'FT'
+    QWEAPON4 = 'WW'
+    QWEAPON5 = 'BS'
+    QWEAPON6 = 'ST FN'
+    QWEAPON7 = 'ST MW'
+    QWEAPON8 = 'ST FT'
+    QWEAPON9 = 'ST WW'
+    QWEAPON10 = 'ST BS'
+
+    OPCIONESQUALITY = (
+        (QWEAPON1, 'FN'),
+        (QWEAPON2, 'MW'),
+        (QWEAPON3, 'FT'),
+        (QWEAPON4, 'WW'),
+        (QWEAPON5, 'BS'),
+        (QWEAPON6, 'ST FN'),
+        (QWEAPON7, 'ST MW'),
+        (QWEAPON8, 'ST FT'),
+        (QWEAPON9, 'ST WW'),
+        (QWEAPON10, 'ST BS'),
+    )
+    qualityWeapon = models.CharField(max_length=50, choices=OPCIONESQUALITY)
+    containerWeapon = models.CharField(max_length=100)
+    collectionsWeapon = models.CharField(max_length=100)
+    imagenArma = models.ImageField(upload_to='media')
+    precioArma = models.DecimalField(verbose_name='precioarma', max_digits=5, decimal_places=2)
     def __str__(self):
-        return self.choice_field 
+        return self.choice_field + ' | ' + self.nameSkin 
 
 
-class Armas(models.Model):
+""" class Armas(models.Model):
     market = models.OneToOneField(Market, on_delete=models.CASCADE)
     nameSkin = models.CharField(max_length=100)
     DWEAPON1 = 'Classified'
@@ -112,9 +158,10 @@ class Armas(models.Model):
     containerWeapon = models.CharField(max_length=100)
     collectionsWeapon = models.CharField(max_length=100)
     imagenArma = models.ImageField(upload_to='media')
+    precioArma = models.DecimalField(verbose_name='precioarma', max_digits=5, decimal_places=2)
     
     def __str__(self):
-        return self.nameSkin 
+        return self.nameSkin  """
 
 
 

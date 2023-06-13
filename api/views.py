@@ -1,8 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from hltv.models import Player, Noticias, Teams
-from .serializers import PlayerSerializer, NoticiasSerializer, TeamsSerializer
+from hltv.models import Player, Noticias, Teams, Market
+from .serializers import PlayerSerializer, NoticiasSerializer, TeamsSerializer, MarketSerializer
 from rest_framework import viewsets
+from csinfo.models import Torneo
 
 
 # #METODO GET
@@ -30,3 +31,7 @@ class NoticiasViewSet(viewsets.ModelViewSet):
 class TeamsViewSet(viewsets.ModelViewSet):
     queryset = Teams.objects.all()
     serializer_class = TeamsSerializer
+
+class MarketViewSet(viewsets.ModelViewSet):
+    queryset = Market.objects.all()
+    serializer_class = MarketSerializer
