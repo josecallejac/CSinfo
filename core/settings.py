@@ -34,6 +34,9 @@ INSTALLED_APPS = [
 
     'widget_tweaks',
 
+    'crispy_forms',
+    'crispy_bootstrap5',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -52,6 +55,10 @@ INSTALLED_APPS = [
     'coreapi',
 
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
@@ -72,9 +79,10 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-#ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 #ACCOUNT_EMAIL_REQUIRED = True
-#ACCOUNT_EMAIL_UNIQUE = True
+ACCOUNT_EMAIL_UNIQUE = True
+#Siosi debe verificar para poder entrar a la pagina
 #ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 AUTH_USER_MODEL = "accounts.User"
 #ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 3
@@ -160,9 +168,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Santiago'
 
 USE_I18N = True
 

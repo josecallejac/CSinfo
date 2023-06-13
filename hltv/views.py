@@ -71,7 +71,7 @@ def market(request):
 
 #TEAMS CSGO
 def get_teams(_request):
-    teams = list(Teams.objects.values())
+    teams = list(Teams.objects.values()) 
     if (len(teams)>0):
         data={'message': "Success", 'teams': teams }
     else:

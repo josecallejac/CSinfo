@@ -23,14 +23,14 @@ fetch('http://127.0.0.1:8000/api/teams/')  // Ruta a tu endpoint de la API
       cardContent.classList.add('card-text');
       cardContent.innerText = teams.ranking;
 
-      const cardTime = document.createElement('p');
-      cardTime.classList.add('card-text');
-      cardTime.innerText = teams.logo;
+      const cardLogo = document.createElement('img');
+      cardLogo.classList.add('card-logo');
+      cardLogo.src = teams.logo;
 
       cardBody.appendChild(cardTitle);
       cardBody.appendChild(cardContent);
       card.appendChild(cardBody);
-      card.appendChild(cardTime);
+      card.appendChild(cardLogo);
 
       teamsContainer.appendChild(card);
     });

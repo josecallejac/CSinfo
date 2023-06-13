@@ -3,13 +3,14 @@ fetch('http://127.0.0.1:8000/api/noticias/')  // Ruta a tu endpoint de la API
   .then(data => {
     const newsContainer = document.getElementById('news-container');
     data.forEach(news => {
+
       const card = document.createElement('div');
       card.classList.add('card');
       card.classList.add('my-custom-card');
 
-    /*   const cardImage = document.createElement('img');
+      const cardImage = document.createElement('img');
       cardImage.classList.add('card-img-top');
-      cardImage.src = news.image;  // URL de la imagen de la noticia */
+      cardImage.src = news.image;  // URL de la imagen de la noticia 
 
       const cardBody = document.createElement('div');
       cardBody.classList.add('card-body');
@@ -31,6 +32,7 @@ fetch('http://127.0.0.1:8000/api/noticias/')  // Ruta a tu endpoint de la API
       cardBody.appendChild(cardContent);
       card.appendChild(cardBody);
       card.appendChild(cardTime);
+      cardBody.appendChild(cardImage);
 
       newsContainer.appendChild(card);
     });

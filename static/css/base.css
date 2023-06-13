@@ -1,3 +1,19 @@
 .body{
     background: url("/static/images/csgobackground.jpg") 50% no-repeat fixed;
 }
+
+html, body {
+    height: 100%;
+  }
+  
+  .wrapper {
+    min-height: 100%;
+    margin-bottom: -2.5rem; /* Tamaño del footer */
+    padding-bottom: 2.5rem; /* Tamaño del footer */
+  }
+  
+  .footer {
+    height: 2.5rem; /* Tamaño del footer */
+    background-color: #f8f9fa; /* Color de fondo del footer */
+  }
+  

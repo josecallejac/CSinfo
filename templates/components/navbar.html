@@ -7,19 +7,33 @@
         </a>
         {% if user.is_authenticated %}
       <div class="items-center justify-between w-5/6 md:flex md:w-auto">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav">          
           <li class="nav-item">
-            <a href="{% url 'hltv:stats' %}" class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">E-Sport</a>  
+            <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">
+              <a href="{% url 'hltv:stats' %}" class="block text-white rounded hover:bg-gray-100 md:hover:bg-transparent
+             md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">E-Sport</a>
+            </button>              
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">
+            <a href="{% url 'hltv:noticias' %}" class="block text-white rounded hover:bg-gray-100 md:hover:bg-transparent
+             md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white
+              md:dark:hover:bg-transparent dark:border-gray-700">Noticias</a>
+            </button>
           </li>
           <li>
-            <a href="{% url 'hltv:noticias' %}" class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Noticias</a>
+            <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">
+            <a href="{% url 'hltv:teams' %}" class="block text-white rounded hover:bg-gray-100 md:hover:bg-transparent
+             md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white
+              md:dark:hover:bg-transparent dark:border-gray-700">Ranking teams</a>
+            </button>
           </li>
           <li>
-            <a href="{% url 'hltv:teams' %}" class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Ranking teams</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Market</a>
-          </li>
+            <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">
+            <a href="#" class="block text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white
+             md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Market</a>
+            </button>
+            </li>
           
         </ul>
       </div>
@@ -31,9 +45,10 @@
           {% if user.is_authenticated %}
           <div class="flex -space-x-2">
             <div class="relative inline-block text-left">
+              
               <div>
-                <button @click="open=true" type="button" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                  Options
+                <button @click="open=true" type="button" class="btn btn-primary btn-rounded" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                  Opciones
                   
                 </button>
               </div>
@@ -69,14 +84,14 @@
 
               <div class="flex items-center justify-center  px-20 py-10 rounded">
                 
-                <button type="button" class="text-white bg-purple-900 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  <a href="{% url 'account_signup' %}" class="text-base font-medium ">Registrate</a>
-                  
+                
+                <button type="button" class="btn btn-primary btn-rounded">
+                  <a href="{% url 'account_signup' %}" class="text-base font-medium text-white p-2 m-2">Registrate</a>
                 </button>
 
-                <button type="button" class="text-white bg-purple-900 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  <a href="{% url 'account_login' %}" class="text-base font-medium ">Login</a>
-                  
+                
+                <button type="button" class="btn btn-primary btn-rounded">
+                  <a href="{% url 'account_login' %}" class="text-base font-medium text-white p-2 m-2">Login</a>
                 </button>
               </div>
         
