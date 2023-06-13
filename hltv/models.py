@@ -111,6 +111,8 @@ class Armas(models.Model):
     qualityWeapon = models.CharField(max_length=50, choices=OPCIONESQUALITY)
     containerWeapon = models.CharField(max_length=100)
     collectionsWeapon = models.CharField(max_length=100)
+    imagenArma = models.ImageField(upload_to='media')
+    
     def __str__(self):
         return self.nameSkin 
 

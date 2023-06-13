@@ -57,13 +57,15 @@ def get_market(_request):
         data = {'message': 'NotFound'}
     return JsonResponse(data)
 
+"""
+
 def market(request):
     #if not request.user.is_authenticated:
         #return redirect(f"{settings.LOGIN_URL}?next={request.path}")
     #noticias = Noticias.objects.all()
     #return render(request, 'pages/noticias.html', {'noticias': noticias} )
     return render(request, 'pages/market.html')
- """
+
 
 
 
@@ -81,6 +83,8 @@ def get_teams(_request):
 def teams(request):    
     return render(request, 'pages/teams.html' )
     
+
+
 
 
 
