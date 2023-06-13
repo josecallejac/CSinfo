@@ -78,6 +78,12 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+
+
+ACCOUNT_FORMS = {
+    'signup': 'core.forms.CustomSignupForm',
+}
+
 SITE_ID = 1
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
