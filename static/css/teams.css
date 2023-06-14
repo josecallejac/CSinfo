@@ -1,13 +1,22 @@
-.card {
+.card-teams {
     width: calc(33.33% - 10px); /* Calcula el ancho para tres tarjetas por fila con un margen de 10px */
     margin: 20px; /* Espacio entre las tarjetas */
     padding: 20px;
-    display: inline-block; /* Muestra las tarjetas en línea */
+    display: flex; /* Muestra las tarjetas en línea */
+    
   }
 
   @media (max-width: 767px) {
-    .card {
+    .card-teams {
       width: 100%; /* En dispositivos móviles, las tarjetas ocuparán el ancho completo */
       margin: 10px 0; /* Espacio entre las tarjetas */
     }
   }
+.my-custom-card-teams {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    /* Otros estilos personalizados */
+}
+
+

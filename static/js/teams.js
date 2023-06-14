@@ -1,4 +1,4 @@
-fetch('http://127.0.0.1:8000/api/teams/')  // Ruta a tu endpoint de la API
+fetch('http://127.0.0.1:8000/api/teams/')
   .then(response => response.json())
   .then(data => {
     const teamsContainer = document.getElementById('teams-container');
@@ -6,6 +6,8 @@ fetch('http://127.0.0.1:8000/api/teams/')  // Ruta a tu endpoint de la API
       const card = document.createElement('div');
       card.classList.add('card');
       card.classList.add('my-custom-card');
+      card.classList.add('random-class-1');
+      card.classList.add('random-class-2');
 
       // Agregar estilo en línea con la imagen del logo como fondo
       card.style.backgroundImage = `url(${teams.logo})`;
@@ -22,8 +24,6 @@ fetch('http://127.0.0.1:8000/api/teams/')  // Ruta a tu endpoint de la API
       const cardContent = document.createElement('p');
       cardContent.classList.add('card-text');
       cardContent.innerText = `Ranking: ${teams.ranking}`;
-
-      
 
       cardBody.appendChild(cardTitle);
       cardBody.appendChild(cardContent);
