@@ -18,13 +18,36 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <lin rel="stylesheet" href="{% static 'css/teams.css' %}">
     
 </head>
 
 
 
 
-<div id="teams-container" class="card-columns card text-center">
+<div id="teams-container" class="row">
+    
+    
+        <style>
+            .card {
+              width: calc(33.33% - 10px); /* Calcula el ancho para tres tarjetas por fila con un margen de 10px */
+              margin: 20px; /* Espacio entre las tarjetas */
+              padding: 20px;
+              display: inline-block; /* Muestra las tarjetas en línea */
+            }
+            
+            @media (max-width: 767px) {
+              .card {
+                width: 100%; /* En dispositivos móviles, las tarjetas ocuparán el ancho completo */
+                margin: 10px 0; /* Espacio entre las tarjetas */
+              }
+            }
+            
+              
+              
+            </style>
+    
+    
         
 
 
@@ -48,4 +71,6 @@
 
 {% block javascript %} 
 <script src="{% static 'js/teams.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 {% endblock javascript %}

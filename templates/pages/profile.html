@@ -22,13 +22,10 @@
 </head>
 
 
-<div id="torneo-container" class="card-columns card text-center">
-        
-
-
-
-</div>
-
+<h1>{{ user.username }}</h1>
+<img src="{{ profile.avatar.url }}" alt="Avatar">
+<p>{{ profile.bio }}</p>
+<!-- Agrega aquí los campos adicionales del perfil -->
 
 
 
@@ -43,5 +40,5 @@
 
 
 {% block javascript %} 
-<script src="{% static 'js/torneos.js' %}"></script>
+
 {% endblock javascript %}

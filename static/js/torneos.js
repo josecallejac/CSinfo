@@ -1,35 +1,34 @@
-fetch('http://127.0.0.1:8000/api/teams/')  // Ruta a tu endpoint de la API
+fetch('http://127.0.0.1:8000/api/torneo/')  // Ruta a tu endpoint de la API
   .then(response => response.json())
   .then(data => {
-    const teamsContainer = document.getElementById('teams-container');
-    data.forEach(teams => {
+    const torneoContainer = document.getElementById('torneo-container');
+    data.forEach(torneo => {
       const card = document.createElement('div');
       card.classList.add('card');
       card.classList.add('my-custom-card');
 
-      // Agregar estilo en línea con la imagen del logo como fondo
-      card.style.backgroundImage = `url(${teams.logo})`;
-      card.style.backgroundSize = 'cover';
-      card.style.backgroundPosition = 'center';
+    /*   const cardImage = document.createElement('img');
+      cardImage.classList.add('card-img-top');
+      cardImage.src = news.image;  // URL de la imagen de la noticia */
 
       const cardBody = document.createElement('div');
       cardBody.classList.add('card-body');
 
       const cardTitle = document.createElement('h5');
       cardTitle.classList.add('card-title');
-      cardTitle.innerText = teams.nameTeam;
+      cardTitle.innerText = torneo.nombreTorneo;
+      
 
       const cardContent = document.createElement('p');
       cardContent.classList.add('card-text');
-      cardContent.innerText = `Ranking: ${teams.ranking}`;
+      cardContent.innerText = torneo.locacionTorneo;
 
       
-
       cardBody.appendChild(cardTitle);
       cardBody.appendChild(cardContent);
       card.appendChild(cardBody);
-
-      teamsContainer.appendChild(card);
+      
+      torneoContainer.appendChild(card);
     });
   })
   .catch(error => console.log(error));
