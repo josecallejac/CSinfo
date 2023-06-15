@@ -21,14 +21,18 @@
     
 </head>
 
+<div class="container mt-5">
 
-<div id="torneo-container" class="card-columns card text-center">
-        
+    <section>
+        <h1 class="text-black text-center font-black text-5xl ">Torneos historicos de Counter-Strike</h1><br>
+      <div class="row" id="torneosCards"></div>
+    </section>
 
+  </div>
 
+    
 
-</div>
-
+ 
 
 
 
@@ -43,5 +47,9 @@
 
 
 {% block javascript %} 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="{% static 'js/torneos.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 {% endblock javascript %}

@@ -1,45 +1,28 @@
-fetch('http://127.0.0.1:8000/api/market/')  // Ruta a tu endpoint de la API
-  .then(response => response.json())
-  .then(data => {
-    const marketContainer = document.getElementById('market-container');
-    data.forEach(market => {
-      const card = document.createElement('div');
-      card.classList.add('card');
-      card.classList.add('my-custom-card');
+document.addEventListener("DOMContentLoaded", function() {
+  const marketItems = document.getElementById("marketItems");
 
-    /*   const cardImage = document.createElement('img');
-      cardImage.classList.add('card-img-top');
-      cardImage.src = news.image;  // URL de la imagen de la noticia */
-
-      const cardBody = document.createElement('div');
-      cardBody.classList.add('card-body');
-
-      const cardTitle = document.createElement('h5');
-      cardTitle.classList.add('card-title');
-      cardTitle.innerText = market.nameSkin;
-      
-
-      const cardContent = document.createElement('p');
-      cardContent.classList.add('card-text');
-      cardContent.innerText = market.choice_field;
-
-
-      cardBody.appendChild(cardTitle);
-      cardBody.appendChild(cardContent);
-      card.appendChild(cardBody);
-      
-
-      marketContainer.appendChild(card);
+  fetch("http://127.0.0.1:8000/api/market/")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "col-lg-4 col-md-6 mb-4";
+        card.innerHTML = `
+          <div class="card">
+            <img src="${item.image}" class="card-img-top" alt="Artículo">
+            <div class="card-body">
+              <h5 class="card-title">${item.nameSkin}</h5>
+              <p class="card-text">Precio: ${item.price}</p>
+              <p class="card-text">Vendedor: ${item.seller}</p>
+              <p class="card-text">Condición: ${item.condition}</p>
+              <p class="card-text">Descripción: ${item.description}</p>
+            </div>
+          </div>
+        `;
+        marketItems.appendChild(card);
+      });
+    })
+    .catch(error => {
+      console.log("Error:", error);
     });
-  })
-  .catch(error => console.log(error));
-
-
-  /* <div class="card-header">Featured</div>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
-        <div class="card-footer text-muted">2 days ago</div>
-      </div> */
+});

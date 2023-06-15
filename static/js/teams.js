@@ -25,21 +25,16 @@ fetch('http://127.0.0.1:8000/api/teams/')
       cardContent.classList.add('card-text');
       cardContent.innerText = `Ranking: ${teams.ranking}`;
 
+      const additionalInfo = document.createElement('p');
+      additionalInfo.classList.add('card-text');
+      additionalInfo.innerText = `Otra información: ${teams.otraInformacion}`;
+
       cardBody.appendChild(cardTitle);
       cardBody.appendChild(cardContent);
+      cardBody.appendChild(additionalInfo);
       card.appendChild(cardBody);
 
       teamsContainer.appendChild(card);
     });
   })
   .catch(error => console.log(error));
-
-
-  /* <div class="card-header">Featured</div>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
-        <div class="card-footer text-muted">2 days ago</div>
-      </div> */

@@ -12,6 +12,7 @@ class Torneo(models.Model):
     fechaTermino = models.DateField(verbose_name='fecha_termino')
     topPlayer = models.CharField(max_length=100)
     teamCampeon = models.CharField(max_length=100)
+    imgTorneo = models.ImageField(upload_to='torneos/')
 
     def __str__(self):
         return self.nombreTorneo

@@ -47,7 +47,8 @@
             <div class="relative inline-block text-left">
               
               <div>
-                <button @click="open=true" type="button" class="btn btn-primary btn-rounded" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                <button @click="open=true" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                
                   Opciones
                   
                 </button>
@@ -85,12 +86,12 @@
               <div class="flex items-center justify-center  px-20 py-10 rounded">
                 
                 
-                <button type="button" class="btn btn-primary btn-rounded">
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   <a href="{% url 'account_signup' %}" class="text-base font-medium text-white p-2 m-2">Registrate</a>
                 </button>
 
                 
-                <button type="button" class="btn btn-primary btn-rounded">
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   <a href="{% url 'account_login' %}" class="text-base font-medium text-white p-2 m-2">Login</a>
                 </button>
               </div>

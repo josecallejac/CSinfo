@@ -24,7 +24,7 @@ class Teams(models.Model):
     id_team = models.AutoField(primary_key=True)
     nameTeam = models.CharField(max_length=50)
     ranking = models.IntegerField(verbose_name='ranking')
-    logo = models.ImageField(upload_to='media')
+    logo = models.ImageField(upload_to='logos/')
     players = models.CharField(max_length=250)
 
     def __str__(self):
@@ -105,7 +105,7 @@ class Market(models.Model):
     qualityWeapon = models.CharField(max_length=50, choices=OPCIONESQUALITY)
     containerWeapon = models.CharField(max_length=100)
     collectionsWeapon = models.CharField(max_length=100)
-    imagenArma = models.ImageField(upload_to='media')
+    imagenArma = models.ImageField(upload_to='weapons/')
     precioArma = models.DecimalField(verbose_name='precioarma', max_digits=5, decimal_places=2)
     def __str__(self):
         return self.choice_field + ' | ' + self.nameSkin 
