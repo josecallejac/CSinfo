@@ -27,6 +27,7 @@ pip install django_compressor
 https://hltv-api.vercel.app/api/match.json
 pip install coreapi
 pip install django-model-utils
+pip install django-jazzmin
 
 BOXICONS -->1:13:19
 
@@ -57,3 +58,4 @@ ST FT
 ST WW
 ST BS
 )
+
