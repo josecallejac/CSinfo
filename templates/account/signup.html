@@ -42,7 +42,7 @@
                 </a>
             </p>
           </div>
-          <form class="" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          <form class="" id="signup_form" method="post" enctype="multipart/form-data" action="{% url 'account_signup' %}">
             {% csrf_token %}
             {{ form|crispy }}
   

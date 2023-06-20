@@ -2,16 +2,25 @@ from allauth.account.forms import LoginForm
 from django import forms
 from django.contrib.auth import get_user_model
 from allauth.account.forms import SignupForm
-User = get_user_model()
+
 from django.contrib.auth.models import Group
+
+from accounts.models import UserProfile
+
 
 
 
 class CustomSignupForm(SignupForm):
+    
+    class Meta:
+        model = UserProfile
+        fields = ['username', 'email', 'avatar']
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['is_staff'] = forms.BooleanField(label='¿Crear cuenta de administrador?', required=False)
-       # self.fields['nacionalidad'] = forms.CharField(label='id_nacionalidad', required=True)
+        self.fields['is_user'] = forms.BooleanField(label='¿Desea crear cuenta cliente?', required=False)
+        
+        
 
     def save(self, request):
         user = super().save(request)

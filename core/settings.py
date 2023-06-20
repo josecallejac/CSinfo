@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'theme',
 
     'django_browser_reload',
-    'accounts',
+    'accounts.apps.AccountsConfig',
     'hltv',
 
     'rest_framework',
