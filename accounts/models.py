@@ -9,7 +9,13 @@ from core import settings
 
 class User(AbstractUser):
     avatar = models.ImageField(upload_to='avatar/', blank=True, null=True)
-    pass
+    ROLE_CHOICES = (
+         ('admin', 'Administrador'),
+         ('is_user', 'Usuarios'),
+    )
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES)
+
+    
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -17,14 +23,16 @@ class UserProfile(models.Model):
     avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
     nacionalidad = models.CharField(max_length=100)
     is_user = models.BooleanField('¿Desea crear cuenta cliente?', default=False)
+    ROLE_CHOICES = (
+         ('admin', 'Administrador'),
+         ('is_user', 'Usuarios'),
+    )
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES)
 
     def __str__(self):
             return self.user.username
     
-    def get_avatar_url(self):
-        if self.avatar:
-            return f"{settings.MEDIA_URL}{self.avatar}"
-        return None
+   
     
 
 @receiver(post_save, sender=User)

@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'compressor',
+    'ckeditor',
+   
 
     'widget_tweaks',
 
@@ -54,6 +56,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'coreapi',
+    'blog',
 
 ]
 
@@ -102,6 +105,13 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 
 
+PERMISSIONS = (
+    ('can_view_admin_dashboard', 'Puede ver el panel de administración'),
+    ('can_add_user', 'Puede agregar usuarios'),
+    
+    
+)
+
 
 
 MIDDLEWARE = [
@@ -128,6 +138,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
+                'blog.processors.ctx_dic_about',
+                'blog.processors.ctx_dic_category',
+                
+                
+                
             ],
         },
     },
@@ -175,7 +191,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'es-es'
+LANGUAGE_CODE = 'es-cl'
 
 TIME_ZONE = 'America/Santiago'
 

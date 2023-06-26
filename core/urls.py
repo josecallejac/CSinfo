@@ -15,6 +15,8 @@ urlpatterns = [
     path('csinfo/', include('csinfo.urls', namespace="csinfo")),
     path('accounts/', include('allauth.urls')),
     path('users/', include('accounts.urls', namespace='users')),
+    path('blog/', include('blog.urls', namespace='blog')),
+    
 
     path("__reload__/", include("django_browser_reload.urls")),
     path('', HomeView.as_view(), name="home"),

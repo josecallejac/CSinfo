@@ -21,10 +21,12 @@ class CustomSignupForm(SignupForm):
         self.fields['is_user'] = forms.BooleanField(label='¿Desea crear cuenta cliente?', required=False)
         
         
+        
 
     def save(self, request):
         user = super().save(request)
         is_staff = self.cleaned_data.get('is_staff')
+        is_user = self.cleaned_data.get('is_user')
         
 
         if is_staff:
@@ -36,7 +38,10 @@ class CustomSignupForm(SignupForm):
         else:
             user.is_staff = False
             user.is_superuser = False
-
+            if is_user:
+                user_group = Group.objects.get(name='Usuarios')
+                user.groups.add(user_group)
+            
         user.save()
         return user
     

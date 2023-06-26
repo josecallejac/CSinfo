@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from accounts.models import UserProfile
 from .forms import UserProfileForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 from .forms import UserProfileForm
 
@@ -43,3 +43,10 @@ def editar_perfil(request):
         form = UserProfileForm(instance=profile)
 
     return render(request, 'pages/editar_perfil.html', {'form': form})
+
+
+@login_required
+@user_passes_test(lambda u: u.role == 'admin', login_url='/')
+def admin_dashboard(request):
+    return render(request, 'pages/vista_admin.html')
+
