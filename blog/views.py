@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Category
+from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.conf import settings
@@ -7,6 +8,9 @@ from django.contrib.auth.models import User, AbstractUser
 from django.contrib.auth import get_user_model
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+from .forms import PostForm
 
 @login_required
 def crear_post(request):
@@ -52,3 +56,30 @@ def autor(request, autor_id):
         
         return render(request, 'pages/autor.html', {'autor':autor})    
    
+
+#crear post
+class PostCreateView(CreateView):
+    model = Post
+    form_class = PostForm
+
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        return super().form_valid(form)
+
+    success_url = reverse_lazy('blog:blog') 
+
+
+#Editar post
+class PostUpdateView(UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name_suffix = '_update_form'
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    def get_success_url(self):
+        return reverse_lazy('blog:update', args=[self.object.id]) + '?ok'
+
+class PostDeleteView(DeleteView):
+    model = Post
+    success_url = reverse_lazy('blog:blog') 
