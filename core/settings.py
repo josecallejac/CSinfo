@@ -85,6 +85,9 @@ AUTHENTICATION_BACKENDS = [
 
 ACCOUNT_FORMS = {
     'signup': 'core.forms.CustomSignupForm',
+    
+    
+
 }
 
 SITE_ID = 1
@@ -104,13 +107,6 @@ ACCOUNT_LOGOUT_ON_GET = True
 
 
 
-
-PERMISSIONS = (
-    ('can_view_admin_dashboard', 'Puede ver el panel de administración'),
-    ('can_add_user', 'Puede agregar usuarios'),
-    
-    
-)
 
 
 
@@ -137,11 +133,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                
-                'blog.processors.ctx_dic_about',
-                'blog.processors.ctx_dic_category',
-                
+                'django.contrib.messages.context_processors.messages',         
                 
                 
             ],

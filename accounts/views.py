@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-
-from accounts.models import UserProfile
+from .forms import AdminRegistrationForm
+from accounts.models import UserProfile, User
 from .forms import UserProfileForm
 from django.contrib.auth.decorators import login_required, user_passes_test
+from accounts.forms import AdminRegistrationForm
 
 from .forms import UserProfileForm
 
@@ -44,9 +45,49 @@ def editar_perfil(request):
 
     return render(request, 'pages/editar_perfil.html', {'form': form})
 
+def admin_registration(request):
+    if request.method == 'POST':
+        form = AdminRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('users:dashboard')
+    else:
+        form = AdminRegistrationForm()
+    
+    return render(request, 'pages/vista_admin.html', {'form': form})
 
-@login_required
-@user_passes_test(lambda u: u.role == 'admin', login_url='/')
-def admin_dashboard(request):
-    return render(request, 'pages/vista_admin.html')
+
+
+def dashboard_admin(request):    
+    return render(request, 'pages/dashboard.html')
+#CRUD USUARIOS
+def actualizar(request):    
+    return render(request, 'crud_usuarios/actualizar.html')
+def agregar(request):    
+    if request.method=='POST':
+        if request.POST.get('username') and request.POST.get('password1') and request.POST.get('password2') and request.POST.get('bio') and request.POST.get('avatar') and request.POST.get('rol_cs'):
+            user = User()
+            user.username = request.POST.get('nombre')
+            user.password1 = request.POST.get('password1')
+            user.password2 = request.POST.get('password2')
+            user.bio = request.POST.get('bio')
+            user.avatar = request.POST.get('avatar')
+            user.rol_cs = request.POST.get('rol_cs')
+            user.save()
+            return redirect('users:actualizar')
+    else:
+        return render(request, 'crud_usuarios/agregar.html')
+            
+
+    return render(request, 'crud_usuarios/agregar.html')
+def eliminar(request):    
+    return render(request, 'crud_usuarios/eliminar.html')
+def listar(request):    
+    users = User.objects.all()
+    datos = {'usuarios': users }
+    return render(request, 'crud_usuarios/listar.html', datos)
+
+
+    
+        
 

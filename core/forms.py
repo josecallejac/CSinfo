@@ -17,35 +17,7 @@ class CustomSignupForm(SignupForm):
         fields = ['username', 'email', 'avatar']
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['is_staff'] = forms.BooleanField(label='¿Crear cuenta de administrador?', required=False)
-        self.fields['is_user'] = forms.BooleanField(label='¿Desea crear cuenta cliente?', required=False)
-        
-        
-        
-
-    def save(self, request):
-        user = super().save(request)
-        is_staff = self.cleaned_data.get('is_staff')
-        is_user = self.cleaned_data.get('is_user')
-        
-
-        if is_staff:
-            user.is_staff = True
-            user.is_superuser = False
-            # Aquí puedes asignar los roles adicionales para los administradores si es necesario
-            administrators_group = Group.objects.get(name='Administrador')
-            user.groups.add(administrators_group)
-        else:
-            user.is_staff = False
-            user.is_superuser = False
-            if is_user:
-                user_group = Group.objects.get(name='Usuarios')
-                user.groups.add(user_group)
-            
-        user.save()
-        return user
-    
-        
+             
     
     
 
