@@ -61,8 +61,24 @@ def admin_registration(request):
 def dashboard_admin(request):    
     return render(request, 'pages/dashboard.html')
 #CRUD USUARIOS
-def actualizar(request):    
-    return render(request, 'crud_usuarios/actualizar.html')
+def actualizar(request):  
+    if request.method=='POST':
+        if request.POST.get('username') and request.POST.get('password1') and request.POST.get('password2') and request.POST.get('bio') and request.POST.get('avatar') and request.POST.get('rol_cs'):
+            user = User()
+            user.id = request.POST.get('id')
+            user.username = request.POST.get('nombre')
+            user.password1 = request.POST.get('password1')
+            user.password2 = request.POST.get('password2')
+            user.bio = request.POST.get('bio')
+            user.avatar = request.POST.get('avatar')
+            user.rol_cs = request.POST.get('rol_cs')
+            user.save()
+            return redirect('users:actualizar')
+    else:
+        users = User.objects.all()
+        datos = {'usuarios': users } 
+        return render(request, 'crud_usuarios/actualizar.html', datos)
+
 def agregar(request):    
     if request.method=='POST':
         if request.POST.get('username') and request.POST.get('password1') and request.POST.get('password2') and request.POST.get('bio') and request.POST.get('avatar') and request.POST.get('rol_cs'):
@@ -80,8 +96,17 @@ def agregar(request):
             
 
     return render(request, 'crud_usuarios/agregar.html')
-def eliminar(request):    
-    return render(request, 'crud_usuarios/eliminar.html')
+def eliminar(request):   
+    if request.method=='POST':
+        if request.POST.get('id'):
+            id_a_borrar =  request.POST.get('id')
+            tupla = User.objects.get(id= id_a_borrar)
+            tupla.delete()
+            return redirect('users:listar')
+    else:
+        users = User.objects.all()
+        datos = {'usuarios': users } 
+        return render(request, 'crud_usuarios/eliminar.html', datos)
 def listar(request):    
     users = User.objects.all()
     datos = {'usuarios': users }

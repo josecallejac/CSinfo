@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block navbar %} 
@@ -9,5 +9,33 @@
 {% block content %}
 
 <h1>Eliminar</h1>
+
+<form class="" method="post" enctype="multipart/form-data" action="eliminar">
+    {% csrf_token %}
+    {{ form|crispy }}
+  
+    <div class="form-group row">
+      <label for="text" class="col-4 col-form-label">ID Usuario</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-user"></i>
+            </div>
+          </div> 
+          <select id="id" name="id">
+          {% for u in usuarios %}
+            <option valeu="{{u.id}}">{{u.id}}</option>
+          
+          {% endfor %}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div>
+        <button class="mt-5 w-full border p-2 bg-gradient-to-r from-gray-800 bg-gray-500 text-white rounded-[4px] hover:bg-slate-400 scale-105 duration-300" type="submit">
+            <i class="fa fa-trash"></i>Eliminar usuario</button>
+      </div>
+</form>
 
 {% endblock content %}
