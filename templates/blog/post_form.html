@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block navbar %} 
@@ -26,15 +26,16 @@
 <br>
 
 
-<div class="mb-5">
-  <h2>Crear Post</h2>
+<div class="font-black mb-5 bg-light p-3 rounded">
+  <h2 class="text-black text-center font-black text-5xl">Crear Post</h2><br>
   <form action="" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-
-      {{ form.as_p }}
+    {% csrf_token %}
+    {{ form|crispy }}
 
       <div class="text-center">
-          <input class="btn btn-lg btn-success" type="submit" value="CREAR POST">
+        <button class="btn-success">
+          <input type="submit" value="CREAR POST">
+        </button>
       </div>
   </form>
 </div>

@@ -11,33 +11,33 @@
           <li class="nav-item">
             <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">
               <a href="{% url 'hltv:stats' %}" class="block text-white rounded hover:bg-gray-100 md:hover:bg-transparent
-             md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700">E-Sport</a>
+             md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700"><i class="fa-solid fa-game-console-handheld-crank"></i> E-Sport</a>
             </button>              
           </li>
           <li class="nav-item">
             <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">
             <a href="{% url 'csinfo:major' %}" class="block text-white rounded hover:bg-gray-100 md:hover:bg-transparent
              md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white
-              md:dark:hover:bg-transparent dark:border-gray-700">Torneos historicos</a>
+              md:dark:hover:bg-transparent dark:border-gray-700"><i class="fa-solid fa-trophy"></i> Torneos historicos</a>
             </button>
           </li>
           <li>
             <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">
             <a href="{% url 'hltv:teams' %}" class="block text-white rounded hover:bg-gray-100 md:hover:bg-transparent
              md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white
-              md:dark:hover:bg-transparent dark:border-gray-700">Ranking teams</a>
+              md:dark:hover:bg-transparent dark:border-gray-700"><i class="fa-solid fa-ranking-star"></i> Ranking teams</a>
             </button>
           </li>
-          <li>
+            {% comment %} <li>
             <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">
             <a href="{% url 'hltv:market' %}" class="block text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white
-             md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Market</a>
+             md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><i class="fa-sharp fa-solid fa-store"></i>Market</a>
             </button>
-            </li>
+            </li> {% endcomment %}
             <li>
               <button type="button" class="btn btn-outline-secondary btn-rounded" data-mdb-ripple-color="dark">
               <a href="{% url 'blog:blog' %}" class="block text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white
-               md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Blog</a>
+               md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><i class="fa-sharp fa-solid fa-store"></i>Blog/Market</a>
               </button>
               </li>
           
@@ -55,7 +55,7 @@
               <div>
                 <button @click="open=true" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="menu-button" aria-expanded="true" aria-haspopup="true">
                 
-                  {{ request.user.username}}
+                  <i class="fa-solid fa-user"></i>  {{ request.user.username}}
                   
                   
                 </button>
